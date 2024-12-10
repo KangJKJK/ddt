@@ -29,9 +29,11 @@ if [ ! -f package.json ]; then
     npm init -y
 fi
 
-# 필요한 패키지 설치
-echo -e "${GREEN}필요한 패키지 설치 중...${NC}"
-npm install @solana/web3.js bs58
+# 필요한 패키지 설치 확인 및 설치
+if ! npm list @solana/web3.js bs58 &> /dev/null; then
+    echo -e "${GREEN}필요한 패키지가 설치되어 있지 않습니다. 설치를 시작합니다...${NC}"
+    npm install @solana/web3.js bs58
+fi
 
 # 실행 권한 확인 및 부여
 if [ ! -x claim.js ]; then
@@ -40,4 +42,4 @@ fi
 
 # 프로그램 실행
 echo -e "${GREEN}프로그램을 실행합니다...${NC}"
-node dds.js
+node ddt.js
