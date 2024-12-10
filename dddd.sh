@@ -35,6 +35,12 @@ if ! npm list @solana/web3.js bs58 &> /dev/null; then
     npm install @solana/web3.js bs58
 fi
 
+# ddt.js 파일 생성 확인
+if [ ! -f ddt.js ]; then
+    echo -e "${RED}ddt.js 파일이 존재하지 않습니다. 파일을 생성해주세요.${NC}"
+    exit 1
+fi
+
 # 실행 권한 확인 및 부여
 if [ ! -x claim.js ]; then
     chmod +x claim.js
