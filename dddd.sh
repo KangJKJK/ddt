@@ -40,4 +40,4 @@ fi
 
 # 프로그램 실행
 echo -e "${GREEN}프로그램을 실행합니다...${NC}"
-node claim.js
+node dds.js
